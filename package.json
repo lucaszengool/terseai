@@ -1,0 +1,21 @@
+{
+  "name": "terse",
+  "version": "0.1.0",
+  "description": "Systematic token optimization framework for LLM applications",
+  "type": "module",
+  "main": "src/index.js",
+  "scripts": {
+    "benchmark": "node benchmark/run.js",
+    "test": "node --test tests/"
+  },
+  "keywords": ["llm", "token", "optimization", "ai", "framework", "anthropic", "openai"],
+  "license": "MIT",
+  "peerDependencies": {
+    "@anthropic-ai/sdk": ">=0.24.0",
+    "openai": ">=4.0.0"
+  },
+  "peerDependenciesMeta": {
+    "@anthropic-ai/sdk": { "optional": true },
+    "openai": { "optional": true }
+  }
+}

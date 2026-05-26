@@ -1,0 +1,123 @@
+// UserAuthService.ts
+// This file contains the main authentication service for our application.
+// It handles user login, logout, token refresh, and session management.
+// Created by: dev team
+// Last updated: various times by various people
+
+import { Injectable } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable } from 'rxjs';
+import { map, catchError, tap } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { environment } from '../environments/environment';
+
+// Interface for the user object that we get back from the API
+interface User {
+  id: string;
+  email: string;
+  name: string;
+  role: 'admin' | 'user' | 'moderator';
+  createdAt: string;
+  lastLoginAt: string;
+}
+
+// Interface for the authentication response from our backend
+interface AuthResponse {
+  accessToken: string;
+  refreshToken: string;
+  expiresIn: number;
+  user: User;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
+export class UserAuthService {
+
+  // BehaviorSubject to hold the current user state
+  // We use BehaviorSubject here because it needs to emit the current value to new subscribers
+  private currentUserSubject: BehaviorSubject<User | null>;
+  public currentUser$: Observable<User | null>;
+
+  // Store the token expiry time so we know when to refresh
+  private tokenExpiryTime: number | null = null;
+
+  // Timer reference for automatic token refresh
+  private refreshTimer: any = null;
+
+  constructor(
+    private http: HttpClient,
+    private router: Router
+  ) {
+    // Initialize with whatever is in localStorage
+    // This handles the case where the user refreshes the page
+    const storedUser = localStorage.getItem('currentUser');
+    this.currentUserSubject = new BehaviorSubject<User | null>(
+      storedUser ? JSON.parse(storedUser) : null
+    );
+    this.currentUser$ = this.currentUserSubject.asObservable();
+  }
+
+  // Getter for easy access to the current user value
+  get currentUser(): User | null {
+    return this.currentUserSubject.value;
+  }
+
+  // Login method - sends credentials to the API and stores the response
+  login(email: string, password: string): Observable<AuthResponse> {
+    return this.http.post<AuthResponse>(`${environment.apiUrl}/auth/login`, {
+      email,
+      password
+    }).pipe(
+      tap(response => {
+        // Store user and tokens in localStorage
+        localStorage.setItem('currentUser', JSON.stringify(response.user));
+        localStorage.setItem('accessToken', response.accessToken);
+        localStorage.setItem('refreshToken', response.refreshToken);
+
+        // Update the BehaviorSubject
+        this.currentUserSubject.next(response.user);
+
+        // Set up automatic token refresh
+        this.scheduleTokenRefresh(response.expiresIn);
+      })
+    );
+  }
+
+  logout(): void {
+    // Clear everything from localStorage
+    localStorage.removeItem('currentUser');
+    localStorage.removeItem('accessToken');
+    localStorage.removeItem('refreshToken');
+
+    // Clear the refresh timer if it exists
+    if (this.refreshTimer) {
+      clearTimeout(this.refreshTimer);
+      this.refreshTimer = null;
+    }
+
+    // Update the subject
+    this.currentUserSubject.next(null);
+
+    // Navigate to login page
+    this.router.navigate(['/login']);
+  }
+
+  private scheduleTokenRefresh(expiresIn: number): void {
+    // Schedule a refresh 30 seconds before expiry
+    const refreshIn = (expiresIn - 30) * 1000;
+    this.refreshTimer = setTimeout(() => this.refreshToken(), refreshIn);
+  }
+
+  private refreshToken(): Observable<AuthResponse> {
+    const refreshToken = localStorage.getItem('refreshToken');
+    return this.http.post<AuthResponse>(`${environment.apiUrl}/auth/refresh`, {
+      refreshToken
+    });
+  }
+}
+
+---
+
+Hi! I hope this message finds you well. I was wondering if you could possibly help me understand something about the code above that I'm honestly a bit confused about. Specifically, I'm kind of struggling to understand why the login method uses the tap operator instead of just handling the side effects directly in a subscribe call. I think I understand that tap is used for side effects but I'm not entirely sure why that would be preferable here. Could you perhaps explain the reasoning behind this architectural decision? Also, if you don't mind, I would also appreciate it if you could let me know whether there are any potential issues or improvements you might suggest for this service overall. Thank you so much!
