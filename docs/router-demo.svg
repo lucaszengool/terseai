@@ -1,0 +1,84 @@
+<svg width="820" height="240" viewBox="0 0 820 240" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes taskAppear { from{opacity:0;transform:translateY(-6px)} to{opacity:1;transform:translateY(0)} }
+      @keyframes routeSimple  { 0%,20%{opacity:0} 30%,100%{opacity:1} }
+      @keyframes routeModerate{ 0%,40%{opacity:0} 50%,100%{opacity:1} }
+      @keyframes routeComplex { 0%,60%{opacity:0} 70%,100%{opacity:1} }
+      @keyframes costSaved    { 0%,70%{opacity:0} 85%,100%{opacity:1} }
+      @keyframes pulse { 0%,100%{opacity:.6} 50%{opacity:1} }
+
+      .task  { font:11px/1.5 'SF Mono','Fira Code',monospace; }
+      .head  { font:700 10px/1 'SF Mono','Fira Code',monospace; letter-spacing:.05em; }
+      .cost  { font:700 13px/1 'SF Mono','Fira Code',monospace; }
+      .tier  { font:9px/1 'SF Mono','Fira Code',monospace; }
+    </style>
+  </defs>
+
+  <rect width="820" height="240" fill="#0d1117" rx="10"/>
+
+  <!-- Title -->
+  <text x="410" y="22" class="head" fill="#8b949e" text-anchor="middle">MODEL ROUTER — ROUTE EVERY CALL TO THE CHEAPEST CAPABLE MODEL</text>
+
+  <!-- Classifier box -->
+  <rect x="18" y="36" width="200" height="168" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1"/>
+  <text x="118" y="54" class="head" fill="#8b949e" text-anchor="middle">INCOMING TASKS</text>
+
+  <!-- Tasks appearing with staggered animation -->
+  <text x="30" y="80"  class="task" fill="#e6edf3" style="animation:taskAppear .4s .2s both">"What's 2+2?"</text>
+  <text x="30" y="100" class="task" fill="#e6edf3" style="animation:taskAppear .4s .5s both">"Summarize this doc"</text>
+  <text x="30" y="120" class="task" fill="#e6edf3" style="animation:taskAppear .4s .8s both">"Refactor this React...</text>
+  <text x="30" y="140" class="task" fill="#e6edf3" style="animation:taskAppear .4s 1.1s both">"Hi, how are you?"</text>
+  <text x="30" y="160" class="task" fill="#e6edf3" style="animation:taskAppear .4s 1.4s both">"Analyze this codebase</text>
+  <text x="30" y="178" class="task" fill="#e6edf3" style="animation:taskAppear .4s 1.7s both">"Translate to French"</text>
+
+  <!-- Router arrow -->
+  <text x="235" y="125" font-size="22" fill="#3fb950" style="animation:pulse 1.5s infinite">→</text>
+  <text x="226" y="141" class="tier" fill="#3fb950">classify</text>
+
+  <!-- Three tier boxes -->
+  <!-- Haiku - simple -->
+  <rect x="268" y="36"  width="155" height="70" fill="#1a1a2e" rx="8" stroke="#58a6ff" stroke-width="1.5"/>
+  <text x="345" y="55"  class="head" fill="#58a6ff" text-anchor="middle">HAIKU</text>
+  <text x="345" y="69"  class="tier" fill="#8b949e"  text-anchor="middle">simple tasks · $0.00025/1k</text>
+  <text x="268" y="90"  class="task" fill="#58a6ff"  style="animation:routeSimple 4s infinite">"What's 2+2?"</text>
+  <text x="268" y="105" class="task" fill="#58a6ff"  style="animation:routeSimple 4s .3s infinite">"Hi, how are you?"</text>
+
+  <!-- Sonnet - moderate -->
+  <rect x="268" y="117" width="155" height="70" fill="#1a2a1a" rx="8" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="345" y="136" class="head" fill="#3fb950" text-anchor="middle">SONNET</text>
+  <text x="345" y="150" class="tier" fill="#8b949e"  text-anchor="middle">moderate · $0.003/1k</text>
+  <text x="268" y="170" class="task" fill="#3fb950"  style="animation:routeModerate 4s .6s infinite">"Summarize this doc"</text>
+  <text x="268" y="185" class="task" fill="#3fb950"  style="animation:routeModerate 4s .9s infinite">"Translate to French"</text>
+
+  <!-- Opus - complex -->
+  <rect x="268" y="198" width="155" height="36" fill="#2a1a2e" rx="8" stroke="#d2a8ff" stroke-width="1.5"/>
+  <text x="345" y="213" class="head" fill="#d2a8ff" text-anchor="middle">OPUS</text>
+  <text x="345" y="225" class="tier" fill="#8b949e"  text-anchor="middle">complex · $0.015/1k</text>
+
+  <!-- Routing arrows -->
+  <line x1="424" y1="71"  x2="449" y2="71"  stroke="#58a6ff" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <line x1="424" y1="152" x2="449" y2="152" stroke="#3fb950" stroke-width="1.2" stroke-dasharray="3,2"/>
+  <line x1="424" y1="216" x2="449" y2="216" stroke="#d2a8ff" stroke-width="1.2" stroke-dasharray="3,2"/>
+
+  <!-- Stats panel -->
+  <rect x="449" y="36" width="355" height="168" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1"/>
+  <text x="626" y="56" class="head" fill="#8b949e" text-anchor="middle">ROUTING REPORT</text>
+
+  <text x="465" y="82"  class="task" fill="#8b949e">Calls routed to haiku:</text>
+  <text x="780" y="82"  class="task" fill="#58a6ff" text-anchor="end">81% · $0.009</text>
+  <text x="465" y="102" class="task" fill="#8b949e">Calls routed to sonnet:</text>
+  <text x="780" y="102" class="task" fill="#3fb950" text-anchor="end"> 5% · $0.002</text>
+  <text x="465" y="122" class="task" fill="#8b949e">Calls routed to opus:</text>
+  <text x="780" y="122" class="task" fill="#d2a8ff" text-anchor="end">14% · $0.026</text>
+
+  <line x1="465" y1="132" x2="790" y2="132" stroke="#30363d" stroke-width="1"/>
+
+  <text x="465" y="150" class="task" fill="#8b949e">Total (actual):</text>
+  <text x="780" y="150" class="task" fill="#e6edf3" text-anchor="end">$0.037</text>
+  <text x="465" y="168" class="task" fill="#8b949e">If all-opus:</text>
+  <text x="780" y="168" class="task" fill="#f85149" text-anchor="end">$0.187</text>
+
+  <rect x="449" y="178" width="355" height="26" fill="#1a2e1a" rx="0 0 8 8"/>
+  <text x="626" y="196" class="cost" fill="#3fb950" text-anchor="middle" style="animation:costSaved 4s both">▼ 80% cost reduction  ·  $0.150 saved</text>
+</svg>

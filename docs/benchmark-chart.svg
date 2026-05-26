@@ -1,0 +1,85 @@
+<svg width="820" height="300" viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes bar1 { from{width:0} to{width:230px} }
+      @keyframes bar2 { from{width:0} to{width:401px} }
+      @keyframes bar3 { from{width:0} to{width:211px} }
+      @keyframes bar4 { from{width:0} to{width:401px} }
+      @keyframes bar5 { from{width:0} to{width:346px} }
+      @keyframes num1 { 0%,60%{opacity:0} 100%{opacity:1} }
+
+      .bar { animation-duration:1.4s; animation-timing-function:cubic-bezier(.2,1,.3,1); animation-fill-mode:both; }
+      .b1  { animation-name:bar1; animation-delay:0.1s; }
+      .b2  { animation-name:bar2; animation-delay:0.3s; }
+      .b3  { animation-name:bar3; animation-delay:0.5s; }
+      .b4  { animation-name:bar4; animation-delay:0.7s; }
+      .b5  { animation-name:bar5; animation-delay:0.9s; }
+      .num { animation:num1 1.8s both; font:700 13px/1 'SF Mono','Fira Code',monospace; }
+
+      .rowlabel { font:12px/1 'SF Mono','Fira Code',monospace; fill:#c9d1d9; }
+      .sublabel  { font:10px/1 'SF Mono','Fira Code',monospace; fill:#8b949e; }
+      .title     { font:700 12px/1 'SF Mono','Fira Code',monospace; letter-spacing:.06em; }
+    </style>
+  </defs>
+
+  <rect width="820" height="300" fill="#0d1117" rx="10"/>
+
+  <!-- Title -->
+  <text x="40" y="30" class="title" fill="#8b949e">BENCHMARK — TOKEN SAVINGS BY MODULE</text>
+  <text x="40" y="46" class="sublabel">measured on included fixtures · run node benchmark/run.js</text>
+
+  <!-- Grid lines -->
+  <line x1="220" y1="58" x2="220" y2="265" stroke="#21262d" stroke-width="1"/>
+  <line x1="320" y1="58" x2="320" y2="265" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <line x1="420" y1="58" x2="420" y2="265" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <line x1="520" y1="58" x2="520" y2="265" stroke="#21262d" stroke-width="0.5" stroke-dasharray="3,3"/>
+  <line x1="620" y1="58" x2="620" y2="265" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Axis labels -->
+  <text x="220" y="272" class="sublabel" text-anchor="middle">0%</text>
+  <text x="320" y="272" class="sublabel" text-anchor="middle">25%</text>
+  <text x="420" y="272" class="sublabel" text-anchor="middle">50%</text>
+  <text x="520" y="272" class="sublabel" text-anchor="middle">75%</text>
+  <text x="620" y="272" class="sublabel" text-anchor="middle">100%</text>
+
+  <!-- Row 1: Linguistic Compression -->
+  <text x="210" y="82" class="rowlabel" text-anchor="end">Linguistic</text>
+  <text x="210" y="95" class="sublabel" text-anchor="end">compression</text>
+  <rect x="220" y="68" height="26" fill="#3fb950" rx="3" class="bar b1"/>
+  <text x="455" y="86" class="num" fill="#3fb950" style="animation-delay:1.5s">22–50%</text>
+
+  <!-- Row 2: Working Memory -->
+  <text x="210" y="133" class="rowlabel" text-anchor="end">Working</text>
+  <text x="210" y="146" class="sublabel" text-anchor="end">memory</text>
+  <rect x="220" y="120" height="26" fill="#58a6ff" rx="3" class="bar b2"/>
+  <text x="625" y="138" class="num" fill="#58a6ff" style="animation-delay:1.7s">75–85%</text>
+
+  <!-- Row 3: Tool Optimizer -->
+  <text x="210" y="184" class="rowlabel" text-anchor="end">Tool schema</text>
+  <text x="210" y="197" class="sublabel" text-anchor="end">optimizer</text>
+  <rect x="220" y="170" height="26" fill="#d2a8ff" rx="3" class="bar b3"/>
+  <text x="435" y="188" class="num" fill="#d2a8ff" style="animation-delay:1.9s">42–69%</text>
+
+  <!-- Row 4: Model Routing (cost) -->
+  <text x="210" y="235" class="rowlabel" text-anchor="end">Model routing</text>
+  <text x="210" y="248" class="sublabel" text-anchor="end">cost reduction</text>
+  <rect x="220" y="220" height="26" fill="#ffa657" rx="3" class="bar b4"/>
+  <text x="625" y="238" class="num" fill="#ffa657" style="animation-delay:2.1s">40–80%</text>
+
+  <!-- Right-side legend -->
+  <text x="680" y="75" class="sublabel">Removes filler, hedging,</text>
+  <text x="680" y="88" class="sublabel">politeness from prompts</text>
+
+  <text x="680" y="128" class="sublabel">Smart eviction keeps</text>
+  <text x="680" y="141" class="sublabel">context within budget</text>
+
+  <text x="680" y="180" class="sublabel">Strips verbose phrases</text>
+  <text x="680" y="193" class="sublabel">from function schemas</text>
+
+  <text x="680" y="230" class="sublabel">Routes simple tasks to</text>
+  <text x="680" y="243" class="sublabel">haiku, hard tasks to opus</text>
+
+  <!-- Combined savings callout -->
+  <rect x="40" y="268" width="170" height="22" fill="#1a2e1a" rx="4" stroke="#3fb950" stroke-width="1"/>
+  <text x="125" y="283" font-family="'SF Mono','Fira Code',monospace" font-size="11" font-weight="700" fill="#3fb950" text-anchor="middle">combined: 40–70% savings</text>
+</svg>

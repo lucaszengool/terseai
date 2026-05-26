@@ -66,6 +66,12 @@ ctx.stats()
 
 That's it. No prompt rewrites. No pipeline changes. Terse intercepts, compresses, and tracks — transparently.
 
+<br>
+<div align="center">
+  <img src="./docs/compression-demo.svg" alt="Terse compression demo — filler words removed in real time" width="820"/>
+</div>
+<br>
+
 ---
 
 ## Why Terse
@@ -84,9 +90,19 @@ Every LLM call contains waste. Filler words. Hedging. Politeness. Verbose phrase
 > [!NOTE]
 > Terse has **zero required dependencies**. The core framework is pure JavaScript. Provider SDKs (`@anthropic-ai/sdk`, `openai`) are optional peer dependencies — install only what you use.
 
+<br>
+<div align="center">
+  <img src="./docs/pipeline.svg" alt="Terse processing pipeline — compress, remember, route, deliver" width="820"/>
+</div>
+<br>
+
 ---
 
 ## Benchmarks
+
+<div align="center">
+  <img src="./docs/benchmark-chart.svg" alt="Terse benchmark — savings by module" width="820"/>
+</div>
 
 Run locally — results are measured on your real fixture files:
 
@@ -582,6 +598,11 @@ const messages = [
 ---
 
 ### ModelRouter
+
+<div align="center">
+  <img src="./docs/router-demo.svg" alt="Terse model router — routes tasks to haiku, sonnet, or opus" width="820"/>
+</div>
+<br>
 
 Routes each LLM call to the cheapest model capable of handling it. Classifies task complexity without a pre-flight LLM call — using fast heuristics on the input messages.
 

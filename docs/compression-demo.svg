@@ -1,0 +1,100 @@
+<svg width="820" height="260" viewBox="0 0 820 260" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes fadeInDown { from { opacity:0; transform:translateY(-8px); } to { opacity:1; transform:translateY(0); } }
+      @keyframes fadeOut    { 0%,40% { opacity:1; fill:#f85149; } 100% { opacity:0; } }
+      @keyframes keepGlow   { 0%,40% { fill:#e6edf3; } 60% { fill:#3fb950; } 100% { fill:#3fb950; } }
+      @keyframes arrowPulse { 0%,100% { opacity:0.4; } 50% { opacity:1; } }
+      @keyframes counterDrop{ 0% { opacity:0; } 20% { opacity:1; } }
+      @keyframes slideIn    { from { opacity:0; transform:translateX(-10px); } to { opacity:1; transform:translateX(0); } }
+      @keyframes barFill    { from { width:0; } to { width:180px; } }
+
+      .panel   { fill:#161b22; rx:6; }
+      .label   { font:600 11px/1 'SF Mono','Fira Code',monospace; fill:#8b949e; letter-spacing:.06em; }
+      .token   { font:14px/1.5 'SF Mono','Fira Code',monospace; }
+      .badge   { font:700 11px/1 'SF Mono','Fira Code',monospace; }
+      .arrow   { fill:#3fb950; animation:arrowPulse 1.8s ease-in-out infinite; }
+
+      .w-hello  { animation: keepGlow 4s 0.5s forwards; }
+      .w-i      { animation: fadeOut  4s 0.5s forwards; }
+      .w-was    { animation: fadeOut  4s 0.5s forwards; }
+      .w-just   { animation: fadeOut  4s 0.5s forwards; }
+      .w-wondering { animation: fadeOut 4s 0.5s forwards; }
+      .w-if     { animation: fadeOut  4s 0.5s forwards; }
+      .w-you    { animation: fadeOut  4s 0.5s forwards; }
+      .w-could  { animation: fadeOut  4s 0.5s forwards; }
+      .w-please { animation: fadeOut  4s 0.5s forwards; }
+      .w-help   { animation: keepGlow 4s 0.5s forwards; }
+      .w-me     { animation: keepGlow 4s 0.5s forwards; }
+      .w-understand { animation: keepGlow 4s 0.5s forwards; }
+      .w-how    { animation: keepGlow 4s 0.5s forwards; }
+      .w-recursion  { animation: keepGlow 4s 0.5s forwards; }
+      .w-works  { animation: keepGlow 4s 0.5s forwards; }
+      .w-thank  { animation: fadeOut  4s 0.5s forwards; }
+      .w-you2   { animation: fadeOut  4s 0.5s forwards; }
+      .w-so     { animation: fadeOut  4s 0.5s forwards; }
+      .w-much   { animation: fadeOut  4s 0.5s forwards; }
+
+      .result-group { animation: slideIn 0.6s 4.5s both; }
+    </style>
+  </defs>
+
+  <!-- Background -->
+  <rect width="820" height="260" fill="#0d1117" rx="10"/>
+
+  <!-- BEFORE panel -->
+  <rect x="20" y="16" width="380" height="150" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1"/>
+  <text x="36" y="38" class="label">BEFORE</text>
+  <rect x="280" y="24" width="106" height="20" fill="#21262d" rx="4"/>
+  <text x="288" y="38" class="badge" fill="#8b949e">19 tokens</text>
+
+  <!-- Before text words -->
+  <text x="36" y="68" class="token w-hello" fill="#e6edf3">Hello!</text>
+  <text x="84" y="68" class="token w-i" fill="#e6edf3">I</text>
+  <text x="100" y="68" class="token w-was" fill="#e6edf3">was</text>
+  <text x="134" y="68" class="token w-just" fill="#e6edf3">just</text>
+  <text x="166" y="68" class="token w-wondering" fill="#e6edf3">wondering</text>
+  <text x="256" y="68" class="token w-if" fill="#e6edf3">if</text>
+  <text x="276" y="68" class="token w-you" fill="#e6edf3">you</text>
+  <text x="306" y="68" class="token w-could" fill="#e6edf3">could</text>
+  <text x="36" y="92" class="token w-please" fill="#e6edf3">please</text>
+  <text x="94" y="92" class="token w-help" fill="#e6edf3">help</text>
+  <text x="128" y="92" class="token w-me" fill="#e6edf3">me</text>
+  <text x="152" y="92" class="token w-understand" fill="#e6edf3">understand</text>
+  <text x="36" y="116" class="token w-how" fill="#e6edf3">how</text>
+  <text x="66" y="116" class="token w-recursion" fill="#e6edf3">recursion</text>
+  <text x="160" y="116" class="token w-works" fill="#e6edf3">works.</text>
+  <text x="36" y="140" class="token w-thank" fill="#e6edf3">Thank</text>
+  <text x="82" y="140" class="token w-you2" fill="#e6edf3">you</text>
+  <text x="110" y="140" class="token w-so" fill="#e6edf3">so</text>
+  <text x="130" y="140" class="token w-much" fill="#e6edf3">much!</text>
+
+  <!-- Arrow -->
+  <g class="arrow">
+    <text x="418" y="98" font-size="28" fill="#3fb950">→</text>
+  </g>
+  <text x="410" y="118" class="label" fill="#3fb950" font-size="10">balanced</text>
+
+  <!-- AFTER panel -->
+  <rect x="460" y="16" width="340" height="150" fill="#161b22" rx="8" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="476" y="38" class="label" fill="#3fb950">AFTER</text>
+  <rect x="570" y="24" width="86" height="20" fill="#1a2e1a" rx="4"/>
+  <text x="578" y="38" class="badge" fill="#3fb950">5 tokens</text>
+  <rect x="664" y="24" width="120" height="20" fill="#1a2e1a" rx="4"/>
+  <text x="672" y="38" class="badge" fill="#3fb950">▼ 74% saved</text>
+
+  <g class="result-group">
+    <text x="476" y="100" class="token" fill="#3fb950" font-size="16">Explain how recursion</text>
+    <text x="476" y="124" class="token" fill="#3fb950" font-size="16">works.</text>
+  </g>
+
+  <!-- Legend -->
+  <rect x="20" y="185" width="780" height="56" fill="#0d1117" rx="6"/>
+  <rect x="36" y="202" width="12" height="12" fill="#f85149" rx="2"/>
+  <text x="54" y="213" class="label">REMOVED — filler words, hedging, politeness</text>
+  <rect x="36" y="222" width="12" height="12" fill="#3fb950" rx="2"/>
+  <text x="54" y="233" class="label">KEPT — semantic content, intent, meaning</text>
+
+  <text x="600" y="213" class="label">modes: light · balanced · aggressive</text>
+  <text x="600" y="233" class="label">protects: code blocks · JSON · URLs</text>
+</svg>
