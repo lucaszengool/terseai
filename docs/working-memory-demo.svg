@@ -1,0 +1,131 @@
+<svg width="820" height="310" viewBox="0 0 820 310" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes msgIn   { from{opacity:0;transform:translateX(-10px)} to{opacity:1;transform:translateX(0)} }
+      @keyframes evict   { 0%,60%{opacity:1;fill:#e6edf3} 80%{opacity:.3;fill:#f85149} 100%{opacity:0;fill:#f85149} }
+      @keyframes keep    { 0%,60%{opacity:1} 100%{opacity:1;fill:#3fb950} }
+      @keyframes windowShift { from{transform:translateY(0)} to{transform:translateY(-26px)} }
+      @keyframes tokenBar{ from{width:0} to{width:var(--w)} }
+      @keyframes countUp { from{opacity:0} to{opacity:1} }
+      @keyframes evictBadge { 0%,50%{opacity:0;transform:scale(.5)} 70%,90%{opacity:1;transform:scale(1)} 100%{opacity:0} }
+
+      .mono { font-family:'SF Mono','Fira Code','Courier New',monospace; }
+      .lbl  { font-size:10px; font-weight:700; fill:#8b949e; letter-spacing:.06em; }
+      .msg  { font-size:11px; }
+      .tok  { font-size:10px; font-weight:700; }
+    </style>
+  </defs>
+
+  <rect width="820" height="310" fill="#0d1117" rx="10"/>
+  <text x="410" y="22" class="mono lbl" text-anchor="middle">WORKING MEMORY — SMART SLIDING WINDOW (strategy: 'smart')</text>
+
+  <!-- Full history column -->
+  <rect x="16" y="32" width="260" height="262" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1"/>
+  <text x="146" y="50" class="mono lbl" text-anchor="middle">FULL HISTORY  (2,140 tokens)</text>
+
+  <!-- 8 messages -->
+  <rect x="24" y="56" width="244" height="20" fill="#21262d" rx="3" style="animation:msgIn .3s .1s both;opacity:0"/>
+  <text x="30" y="70" class="mono msg" fill="#58a6ff" style="animation:msgIn .3s .1s both;opacity:0">[user] Let's build a REST API</text>
+
+  <rect x="24" y="80" width="244" height="20" fill="#21262d" rx="3" style="animation:msgIn .3s .2s both;opacity:0"/>
+  <text x="30" y="94" class="mono msg" fill="#e6edf3" style="animation:msgIn .3s .2s both;opacity:0">[asst] Sure! Express + PostgreSQL?</text>
+
+  <rect x="24" y="104" width="244" height="20" fill="#21262d" rx="3" style="animation:msgIn .3s .3s both;opacity:0"/>
+  <text x="30" y="118" class="mono msg" fill="#58a6ff" style="animation:msgIn .3s .3s both;opacity:0">[user] Yes, with Prisma ORM</text>
+
+  <rect x="24" y="128" width="244" height="20" fill="#21262d" rx="3" style="animation:msgIn .3s .4s both;opacity:0"/>
+  <text x="30" y="142" class="mono msg" fill="#e6edf3" style="animation:msgIn .3s .4s both;opacity:0">[asst] Here's the schema...</text>
+
+  <rect x="24" y="152" width="244" height="20" fill="#21262d" rx="3" style="animation:msgIn .3s .5s both;opacity:0"/>
+  <text x="30" y="166" class="mono msg" fill="#58a6ff" style="animation:msgIn .3s .5s both;opacity:0">[user] Add authentication?</text>
+
+  <rect x="24" y="176" width="244" height="20" fill="#21262d" rx="3" style="animation:msgIn .3s .6s both;opacity:0"/>
+  <text x="30" y="190" class="mono msg" fill="#e6edf3" style="animation:msgIn .3s .6s both;opacity:0">[asst] Use JWT with bcrypt...</text>
+
+  <rect x="24" y="200" width="244" height="20" fill="#21262d" rx="3" style="animation:msgIn .3s .7s both;opacity:0"/>
+  <text x="30" y="214" class="mono msg" fill="#58a6ff" style="animation:msgIn .3s .7s both;opacity:0">[user] What about rate limiting?</text>
+
+  <rect x="24" y="224" width="244" height="20" fill="#21262d" rx="3" style="animation:msgIn .3s .8s both;opacity:0"/>
+  <text x="30" y="238" class="mono msg" fill="#e6edf3" style="animation:msgIn .3s .8s both;opacity:0">[asst] express-rate-limit pkg...</text>
+
+  <!-- Total token bar -->
+  <rect x="24" y="258" width="244" height="6" fill="#30363d" rx="3"/>
+  <rect x="24" y="258" width="244" height="6" fill="#f85149" rx="3" style="animation:tokenBar 1s .9s both;--w:244px;width:0"/>
+  <text x="146" y="278" class="mono tok" fill="#f85149" text-anchor="middle" style="animation:countUp .3s 1.8s both;opacity:0">2,140 tokens (over budget!)</text>
+
+  <!-- Arrow with SMART label -->
+  <text x="292" y="152" font-size="26" fill="#3fb950" style="animation:countUp .4s 1.5s both;opacity:0">→</text>
+  <text x="282" y="168" class="mono" font-size="9" fill="#3fb950" style="animation:countUp .4s 1.5s both;opacity:0">maxTokens</text>
+  <text x="287" y="180" class="mono" font-size="9" fill="#3fb950" style="animation:countUp .4s 1.5s both;opacity:0">= 600</text>
+
+  <!-- Smart window column -->
+  <rect x="330" y="32" width="260" height="262" fill="#161b22" rx="8" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="460" y="50" class="mono lbl" fill="#3fb950" text-anchor="middle">SMART WINDOW  (425 tokens)</text>
+
+  <!-- Pinned: system / first user -->
+  <rect x="338" y="56" width="244" height="20" fill="#1a2e1a" rx="3" stroke="#3fb950" stroke-width=".8"/>
+  <text x="344" y="70" class="mono msg" fill="#3fb950" style="animation:msgIn .3s 1.8s both;opacity:0">📌 [user] Let's build a REST API</text>
+
+  <!-- Evicted messages (middle) — shown crossed out -->
+  <rect x="338" y="80" width="244" height="20" fill="#2e1a1a" rx="3" style="animation:msgIn .3s 2.0s both;opacity:0"/>
+  <text x="344" y="94" class="mono msg" fill="#f85149" style="animation:msgIn .3s 2.0s both;opacity:0">✗ [asst] Sure! Express...  evicted</text>
+
+  <rect x="338" y="104" width="244" height="20" fill="#2e1a1a" rx="3" style="animation:msgIn .3s 2.1s both;opacity:0"/>
+  <text x="344" y="118" class="mono msg" fill="#f85149" style="animation:msgIn .3s 2.1s both;opacity:0">✗ [user] Yes, Prisma ORM  evicted</text>
+
+  <rect x="338" y="128" width="244" height="20" fill="#2e1a1a" rx="3" style="animation:msgIn .3s 2.2s both;opacity:0"/>
+  <text x="344" y="142" class="mono msg" fill="#f85149" style="animation:msgIn .3s 2.2s both;opacity:0">✗ [asst] Here's schema...  evicted</text>
+
+  <rect x="338" y="152" width="244" height="20" fill="#2e1a1a" rx="3" style="animation:msgIn .3s 2.3s both;opacity:0"/>
+  <text x="344" y="166" class="mono msg" fill="#f85149" style="animation:msgIn .3s 2.3s both;opacity:0">✗ [user] Authentication?  evicted</text>
+
+  <!-- Kept: last 3 -->
+  <rect x="338" y="176" width="244" height="20" fill="#1a2e1a" rx="3" stroke="#3fb950" stroke-width=".8" style="animation:msgIn .3s 2.4s both;opacity:0"/>
+  <text x="344" y="190" class="mono msg" fill="#3fb950" style="animation:msgIn .3s 2.4s both;opacity:0">✓ [asst] Use JWT with bcrypt</text>
+
+  <rect x="338" y="200" width="244" height="20" fill="#1a2e1a" rx="3" stroke="#3fb950" stroke-width=".8" style="animation:msgIn .3s 2.5s both;opacity:0"/>
+  <text x="344" y="214" class="mono msg" fill="#3fb950" style="animation:msgIn .3s 2.5s both;opacity:0">✓ [user] Rate limiting?</text>
+
+  <rect x="338" y="224" width="244" height="20" fill="#1a2e1a" rx="3" stroke="#3fb950" stroke-width=".8" style="animation:msgIn .3s 2.6s both;opacity:0"/>
+  <text x="344" y="238" class="mono msg" fill="#3fb950" style="animation:msgIn .3s 2.6s both;opacity:0">✓ [asst] express-rate-limit...</text>
+
+  <!-- Token bar for window -->
+  <rect x="338" y="258" width="244" height="6" fill="#30363d" rx="3"/>
+  <rect x="338" y="258" width="48" height="6" fill="#3fb950" rx="3" style="animation:tokenBar .8s 2.8s both;width:0"/>
+  <text x="460" y="278" class="mono tok" fill="#3fb950" text-anchor="middle" style="animation:countUp .3s 3.4s both;opacity:0">425 tokens  ▼ 80% reduction</text>
+
+  <!-- Stats panel -->
+  <rect x="610" y="32" width="194" height="262" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1"/>
+  <text x="707" y="50" class="mono lbl" text-anchor="middle">MEMORY STATS</text>
+
+  <g style="animation:countUp .4s 3.0s both;opacity:0">
+    <text x="622" y="80"  class="mono msg" fill="#8b949e">Strategy</text>
+    <text x="795" y="80"  class="mono msg" fill="#3fb950" text-anchor="end">smart</text>
+    <line x1="622" y1="88" x2="795" y2="88" stroke="#21262d" stroke-width="1"/>
+
+    <text x="622" y="108" class="mono msg" fill="#8b949e">Budget</text>
+    <text x="795" y="108" class="mono msg" fill="#e6edf3" text-anchor="end">600 tok</text>
+    <line x1="622" y1="116" x2="795" y2="116" stroke="#21262d" stroke-width="1"/>
+
+    <text x="622" y="136" class="mono msg" fill="#8b949e">Messages in</text>
+    <text x="795" y="136" class="mono msg" fill="#e6edf3" text-anchor="end">8</text>
+    <line x1="622" y1="144" x2="795" y2="144" stroke="#21262d" stroke-width="1"/>
+
+    <text x="622" y="164" class="mono msg" fill="#8b949e">Window size</text>
+    <text x="795" y="164" class="mono msg" fill="#3fb950" text-anchor="end">4 msgs</text>
+    <line x1="622" y1="172" x2="795" y2="172" stroke="#21262d" stroke-width="1"/>
+
+    <text x="622" y="192" class="mono msg" fill="#8b949e">Evicted</text>
+    <text x="795" y="192" class="mono msg" fill="#f85149" text-anchor="end">4 msgs</text>
+    <line x1="622" y1="200" x2="795" y2="200" stroke="#21262d" stroke-width="1"/>
+
+    <text x="622" y="220" class="mono msg" fill="#8b949e">Pinned</text>
+    <text x="795" y="220" class="mono msg" fill="#58a6ff" text-anchor="end">1 (first)</text>
+    <line x1="622" y1="228" x2="795" y2="228" stroke="#21262d" stroke-width="1"/>
+  </g>
+
+  <!-- Big reduction number -->
+  <rect x="622" y="246" width="164" height="36" fill="#1a2e1a" rx="6" style="animation:countUp .4s 3.5s both;opacity:0"/>
+  <text x="704" y="262" class="mono" font-size="11" font-weight="700" fill="#3fb950" text-anchor="middle" style="animation:countUp .4s 3.5s both;opacity:0">80.1% reduction</text>
+  <text x="704" y="276" class="mono" font-size="9" fill="#3fb950" text-anchor="middle" style="animation:countUp .4s 3.6s both;opacity:0">2140 → 425 tokens</text>
+</svg>

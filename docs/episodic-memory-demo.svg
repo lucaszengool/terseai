@@ -1,0 +1,103 @@
+<svg width="820" height="290" viewBox="0 0 820 290" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes msgFade { 0%,20%{opacity:1;fill:#e6edf3} 60%{opacity:.3;fill:#8b949e} 100%{opacity:0} }
+      @keyframes summaryIn{ from{opacity:0;transform:scaleY(0)} to{opacity:1;transform:scaleY(1)} }
+      @keyframes recentIn { from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+      @keyframes counterAnim{ 0%{opacity:0} 40%{opacity:1} }
+      @keyframes sparkle  { 0%,100%{opacity:.4;transform:scale(.8)} 50%{opacity:1;transform:scale(1.1)} }
+      @keyframes arrowPulse{ 0%,100%{opacity:.4} 50%{opacity:1} }
+
+      .mono { font-family:'SF Mono','Fira Code','Courier New',monospace; }
+      .lbl  { font-size:10px; font-weight:700; fill:#8b949e; letter-spacing:.06em; }
+      .sm   { font-size:10.5px; }
+    </style>
+  </defs>
+
+  <rect width="820" height="290" fill="#0d1117" rx="10"/>
+  <text x="410" y="20" class="mono lbl" text-anchor="middle">EPISODIC MEMORY — SUMMARIZE OLD TURNS · KEEP RECENT VERBATIM</text>
+
+  <!-- Phase 1: Old messages to summarize -->
+  <rect x="16" y="30" width="200" height="186" fill="#161b22" rx="8" stroke="#30363d"/>
+  <text x="116" y="47" class="mono lbl" text-anchor="middle">OLD TURNS (2000+ tok)</text>
+
+  <rect x="24" y="54"  width="184" height="16" fill="#21262d" rx="3"/>
+  <text x="32" y="66" class="mono sm" fill="#e6edf3" style="animation:msgFade 4s .5s infinite">[1] user: Let's build an API</text>
+  <rect x="24" y="74"  width="184" height="16" fill="#21262d" rx="3"/>
+  <text x="32" y="86" class="mono sm" fill="#e6edf3" style="animation:msgFade 4s .7s infinite">[2] asst: Sure! Express setup…</text>
+  <rect x="24" y="94"  width="184" height="16" fill="#21262d" rx="3"/>
+  <text x="32" y="106" class="mono sm" fill="#e6edf3" style="animation:msgFade 4s .9s infinite">[3] user: Add PostgreSQL</text>
+  <rect x="24" y="114" width="184" height="16" fill="#21262d" rx="3"/>
+  <text x="32" y="126" class="mono sm" fill="#e6edf3" style="animation:msgFade 4s 1.1s infinite">[4] asst: Here's the schema...</text>
+  <rect x="24" y="134" width="184" height="16" fill="#21262d" rx="3"/>
+  <text x="32" y="146" class="mono sm" fill="#e6edf3" style="animation:msgFade 4s 1.3s infinite">[5] user: What ORM to use?</text>
+  <rect x="24" y="154" width="184" height="16" fill="#21262d" rx="3"/>
+  <text x="32" y="166" class="mono sm" fill="#e6edf3" style="animation:msgFade 4s 1.5s infinite">[6] asst: Prisma is great…</text>
+  <rect x="24" y="174" width="184" height="16" fill="#21262d" rx="3"/>
+  <text x="32" y="186" class="mono sm" fill="#e6edf3" style="animation:msgFade 4s 1.7s infinite">[7] user: Add auth with JWT?</text>
+  <rect x="24" y="194" width="184" height="16" fill="#21262d" rx="3"/>
+  <text x="32" y="206" class="mono sm" fill="#e6edf3" style="animation:msgFade 4s 1.9s infinite">[8] asst: Use bcrypt + JWT...</text>
+
+  <!-- Summarize arrow -->
+  <g style="animation:arrowPulse 1.5s 1.0s infinite">
+    <text x="228" y="112" font-size="22" fill="#ffa657">→</text>
+    <text x="218" y="130" class="mono" font-size="8" fill="#ffa657">LLM</text>
+    <text x="213" y="141" class="mono" font-size="8" fill="#ffa657">summary</text>
+  </g>
+
+  <!-- Summary box -->
+  <rect x="258" y="30" width="220" height="186" fill="#161b22" rx="8" stroke="#ffa657" stroke-width="1.5"/>
+  <text x="368" y="47" class="mono lbl" fill="#ffa657" text-anchor="middle">SUMMARY  (180 tokens)</text>
+
+  <rect x="266" y="54" width="204" height="152" fill="#2a1e0a" rx="5" style="animation:summaryIn .5s 2.2s both;opacity:0;transform-origin:368px 130px"/>
+  <text x="274" y="72"  class="mono sm" fill="#ffa657" style="animation:summaryIn .4s 2.3s both;opacity:0">Decisions made:</text>
+  <text x="274" y="87"  class="mono sm" fill="#e6edf3" style="animation:summaryIn .4s 2.4s both;opacity:0">• Build REST API with Express</text>
+  <text x="274" y="102" class="mono sm" fill="#e6edf3" style="animation:summaryIn .4s 2.5s both;opacity:0">• PostgreSQL + Prisma ORM</text>
+  <text x="274" y="117" class="mono sm" fill="#e6edf3" style="animation:summaryIn .4s 2.6s both;opacity:0">• JWT auth with bcrypt</text>
+  <text x="274" y="140" class="mono sm" fill="#ffa657" style="animation:summaryIn .4s 2.7s both;opacity:0">Open questions:</text>
+  <text x="274" y="155" class="mono sm" fill="#e6edf3" style="animation:summaryIn .4s 2.8s both;opacity:0">• Rate limiting approach?</text>
+  <text x="274" y="170" class="mono sm" fill="#e6edf3" style="animation:summaryIn .4s 2.9s both;opacity:0">• Deployment target TBD</text>
+  <text x="274" y="193" class="mono" font-size="9" fill="#ffa657" style="animation:summaryIn .4s 3.0s both;opacity:0">haiku model · 180 tok · saves $0.003</text>
+
+  <!-- Arrow to recent -->
+  <text x="490" y="112" font-size="22" fill="#3fb950" style="animation:arrowPulse 1.5s 1.5s infinite">+</text>
+
+  <!-- Recent verbatim -->
+  <rect x="512" y="30" width="210" height="186" fill="#161b22" rx="8" stroke="#3fb950" stroke-width="1.5"/>
+  <text x="617" y="47" class="mono lbl" fill="#3fb950" text-anchor="middle">RECENT  (420 tokens)</text>
+
+  <rect x="520" y="54" width="194" height="16" fill="#1a2e1a" rx="3" style="animation:recentIn .4s 2.0s both;opacity:0"/>
+  <text x="528" y="66" class="mono sm" fill="#3fb950" style="animation:recentIn .3s 2.0s both;opacity:0">[9] user: Add rate limiting?</text>
+  <rect x="520" y="74" width="194" height="32" fill="#1a2e1a" rx="3" style="animation:recentIn .4s 2.1s both;opacity:0"/>
+  <text x="528" y="86" class="mono sm" fill="#3fb950" style="animation:recentIn .3s 2.1s both;opacity:0">[10] asst: Use express-rate-</text>
+  <text x="528" y="100" class="mono sm" fill="#3fb950" style="animation:recentIn .3s 2.1s both;opacity:0">limit package, configure…</text>
+  <rect x="520" y="110" width="194" height="16" fill="#1a2e1a" rx="3" style="animation:recentIn .4s 2.2s both;opacity:0"/>
+  <text x="528" y="122" class="mono sm" fill="#3fb950" style="animation:recentIn .3s 2.2s both;opacity:0">[11] user: Where to deploy?</text>
+  <rect x="520" y="130" width="194" height="32" fill="#1a2e1a" rx="3" style="animation:recentIn .4s 2.3s both;opacity:0"/>
+  <text x="528" y="142" class="mono sm" fill="#3fb950" style="animation:recentIn .3s 2.3s both;opacity:0">[12] asst: Railway or Fly.io</text>
+  <text x="528" y="156" class="mono sm" fill="#3fb950" style="animation:recentIn .3s 2.3s both;opacity:0">works well for Node.js...</text>
+  <text x="617" y="190" class="mono" font-size="9" fill="#3fb950" text-anchor="middle" style="animation:recentIn .3s 2.4s both;opacity:0">verbatim — no LLM needed</text>
+
+  <!-- Final context stats panel -->
+  <rect x="740" y="30" width="64" height="186" fill="#161b22" rx="8" stroke="#30363d"/>
+  <text x="772" y="52" class="mono lbl" text-anchor="middle" font-size="9">CONTEXT</text>
+
+  <text x="772" y="80"  class="mono" font-size="9" fill="#f85149" text-anchor="middle" style="animation:counterAnim .3s .5s both;opacity:0">BEFORE</text>
+  <text x="772" y="95"  class="mono" font-size="11" font-weight="700" fill="#f85149" text-anchor="middle" style="animation:counterAnim .3s .6s both;opacity:0">2,140</text>
+  <text x="772" y="108" class="mono" font-size="9" fill="#8b949e" text-anchor="middle" style="animation:counterAnim .3s .7s both;opacity:0">tokens</text>
+
+  <text x="772" y="132" font-size="18" fill="#8b949e" text-anchor="middle" style="animation:counterAnim .3s 2.5s both;opacity:0">↓</text>
+
+  <text x="772" y="158" class="mono" font-size="9" fill="#3fb950" text-anchor="middle" style="animation:counterAnim .3s 3.0s both;opacity:0">AFTER</text>
+  <text x="772" y="173" class="mono" font-size="11" font-weight="700" fill="#3fb950" text-anchor="middle" style="animation:counterAnim .3s 3.1s both;opacity:0">600</text>
+  <text x="772" y="186" class="mono" font-size="9" fill="#3fb950" text-anchor="middle" style="animation:counterAnim .3s 3.2s both;opacity:0">tokens</text>
+
+  <!-- Reduction badge at bottom -->
+  <rect x="16" y="228" width="788" height="46" fill="#161b22" rx="6"/>
+  <text x="120" y="249" class="mono" font-size="11" font-weight="700" fill="#3fb950" text-anchor="middle" style="animation:counterAnim .3s 3.4s both;opacity:0">72% reduction</text>
+  <text x="120" y="264" class="mono" font-size="9" fill="#8b949e" text-anchor="middle" style="animation:counterAnim .3s 3.5s both;opacity:0">2,140 → 600 tok</text>
+  <text x="410" y="249" class="mono" font-size="11" fill="#ffa657" text-anchor="middle" style="animation:counterAnim .3s 3.6s both;opacity:0">summary: decisions + open questions preserved</text>
+  <text x="410" y="264" class="mono" font-size="9" fill="#8b949e" text-anchor="middle" style="animation:counterAnim .3s 3.7s both;opacity:0">discards: verbose tool outputs, redundant explanations</text>
+  <text x="700" y="249" class="mono" font-size="11" fill="#3fb950" text-anchor="middle" style="animation:counterAnim .3s 3.8s both;opacity:0">haiku summaries cost ~$0.003</text>
+  <text x="700" y="264" class="mono" font-size="9" fill="#8b949e" text-anchor="middle" style="animation:counterAnim .3s 3.9s both;opacity:0">saved vs full context: $0.04+</text>
+</svg>

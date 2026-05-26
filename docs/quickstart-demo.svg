@@ -1,0 +1,85 @@
+<svg width="820" height="300" viewBox="0 0 820 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes typeIn   { from{width:0;opacity:0} to{width:100%;opacity:1} }
+      @keyframes fadeSlide{ from{opacity:0;transform:translateY(6px)} to{opacity:1;transform:translateY(0)} }
+      @keyframes spinArc  { from{stroke-dashoffset:88} to{stroke-dashoffset:0} }
+      @keyframes tokenDrop{ 0%{opacity:0} 20%{opacity:1} }
+      @keyframes pulse    { 0%,100%{opacity:.5} 50%{opacity:1} }
+      @keyframes statsIn  { from{opacity:0;transform:scaleX(0)} to{opacity:1;transform:scaleX(1)} }
+      @keyframes cursorBlink { 0%,100%{opacity:1} 50%{opacity:0} }
+
+      .mono { font-family:'SF Mono','Fira Code','Courier New',monospace; }
+      .lbl  { font-size:10px; font-weight:700; fill:#8b949e; letter-spacing:.06em; }
+      .cod  { font-size:12px; }
+      .big  { font-size:22px; font-weight:700; }
+      .med  { font-size:13px; font-weight:700; }
+    </style>
+  </defs>
+
+  <rect width="820" height="300" fill="#0d1117" rx="10"/>
+
+  <!-- Panel 1: Input -->
+  <rect x="16" y="32" width="234" height="238" fill="#161b22" rx="8" stroke="#30363d" stroke-width="1"/>
+  <rect x="16" y="32" width="234" height="28" fill="#21262d" rx="8 8 0 0"/>
+  <circle cx="32" cy="46" r="5" fill="#f85149"/>
+  <circle cx="48" cy="46" r="5" fill="#ffa657"/>
+  <circle cx="64" cy="46" r="5" fill="#3fb950"/>
+  <text x="125" y="51" class="mono lbl" text-anchor="middle">INPUT PROMPT</text>
+
+  <text x="28" y="82"  class="mono cod" fill="#e6edf3" style="animation:fadeSlide .4s .2s both;opacity:0">Hello! I was just</text>
+  <text x="28" y="98"  class="mono cod" fill="#e6edf3" style="animation:fadeSlide .4s .3s both;opacity:0">wondering if you</text>
+  <text x="28" y="114" class="mono cod" fill="#e6edf3" style="animation:fadeSlide .4s .4s both;opacity:0">could please help</text>
+  <text x="28" y="130" class="mono cod" fill="#e6edf3" style="animation:fadeSlide .4s .5s both;opacity:0">me understand how</text>
+  <text x="28" y="146" class="mono cod" fill="#e6edf3" style="animation:fadeSlide .4s .6s both;opacity:0">recursion works in</text>
+  <text x="28" y="162" class="mono cod" fill="#e6edf3" style="animation:fadeSlide .4s .7s both;opacity:0">JavaScript. Thank</text>
+  <text x="28" y="178" class="mono cod" fill="#e6edf3" style="animation:fadeSlide .4s .8s both;opacity:0">you so much! I</text>
+  <text x="28" y="194" class="mono cod" fill="#e6edf3" style="animation:fadeSlide .4s .9s both;opacity:0">would really</text>
+  <text x="28" y="210" class="mono cod" fill="#e6edf3" style="animation:fadeSlide .4s 1.0s both;opacity:0">appreciate it.</text>
+
+  <!-- Token count input -->
+  <rect x="26" y="226" width="214" height="30" fill="#21262d" rx="4"/>
+  <text x="133" y="245" class="mono lbl" text-anchor="middle" fill="#f85149" style="animation:fadeSlide .3s 1.1s both;opacity:0">87 tokens</text>
+
+  <!-- Middle: Processing arrow -->
+  <g style="animation:fadeSlide .4s 1.5s both;opacity:0">
+    <circle cx="410" cy="100" r="30" fill="none" stroke="#3fb950" stroke-width="2.5"
+      stroke-dasharray="88 100" stroke-dashoffset="0" style="animation:spinArc 1.2s 1.5s both"/>
+    <text x="410" y="95"  class="mono" font-size="9" fill="#3fb950" text-anchor="middle">balanced</text>
+    <text x="410" y="108" class="mono" font-size="9" fill="#3fb950" text-anchor="middle">compress</text>
+  </g>
+
+  <!-- Down arrow -->
+  <text x="402" y="160" font-size="24" fill="#3fb950" style="animation:pulse 1.2s 2.4s infinite;opacity:0;animation-fill-mode:both">↓</text>
+
+  <!-- API badge -->
+  <rect x="372" y="178" width="76" height="20" fill="#1a2e1a" rx="10" style="animation:fadeSlide .3s 3.2s both;opacity:0"/>
+  <text x="410" y="192" class="mono" font-size="9" font-weight="700" fill="#3fb950" text-anchor="middle" style="animation:fadeSlide .3s 3.2s both;opacity:0">→ API CALL</text>
+
+  <!-- Panel 2: Output -->
+  <rect x="570" y="32" width="234" height="238" fill="#161b22" rx="8" stroke="#3fb950" stroke-width="1.5" style="animation:fadeSlide .4s 2.6s both;opacity:0"/>
+  <rect x="570" y="32" width="234" height="28" fill="#1a2e1a" rx="8 8 0 0" style="animation:fadeSlide .3s 2.6s both;opacity:0"/>
+  <circle cx="586" cy="46" r="5" fill="#3fb950" style="animation:fadeSlide .3s 2.7s both;opacity:0"/>
+  <circle cx="602" cy="46" r="5" fill="#3fb950" style="animation:fadeSlide .3s 2.8s both;opacity:0"/>
+  <circle cx="618" cy="46" r="5" fill="#3fb950" style="animation:fadeSlide .3s 2.9s both;opacity:0"/>
+  <text x="679" y="51" class="mono lbl" text-anchor="middle" fill="#3fb950" style="animation:fadeSlide .3s 2.6s both;opacity:0">COMPRESSED</text>
+
+  <text x="582" y="82"  class="mono cod" fill="#3fb950" style="animation:fadeSlide .4s 2.8s both;opacity:0">Explain how</text>
+  <text x="582" y="98"  class="mono cod" fill="#3fb950" style="animation:fadeSlide .4s 2.9s both;opacity:0">recursion works</text>
+  <text x="582" y="114" class="mono cod" fill="#3fb950" style="animation:fadeSlide .4s 3.0s both;opacity:0">in JavaScript.</text>
+  <text x="582" y="138" class="mono cod" fill="#58a6ff" style="animation:fadeSlide .4s 3.3s both;opacity:0">▊</text>
+
+  <!-- Token count output -->
+  <rect x="580" y="226" width="214" height="30" fill="#1a2e1a" rx="4" style="animation:fadeSlide .3s 3.1s both;opacity:0"/>
+  <text x="687" y="245" class="mono lbl" text-anchor="middle" fill="#3fb950" style="animation:fadeSlide .3s 3.2s both;opacity:0">12 tokens  ▼ 86%</text>
+
+  <!-- Bottom stats bar -->
+  <rect x="16" y="284" width="788" height="0" fill="#0d1117"/>
+  <g style="animation:fadeSlide .5s 3.8s both;opacity:0">
+    <rect x="16" y="278" width="788" height="16" fill="#161b22" rx="0 0 8 8"/>
+    <text x="120" y="290" class="mono lbl" text-anchor="middle">ctx.stats()</text>
+    <text x="310" y="290" class="mono" font-size="10" fill="#3fb950">savingsPercent: 86</text>
+    <text x="490" y="290" class="mono" font-size="10" fill="#58a6ff">inputTokensSaved: 75</text>
+    <text x="670" y="290" class="mono" font-size="10" fill="#ffa657">totalCost: $0.0001</text>
+  </g>
+</svg>

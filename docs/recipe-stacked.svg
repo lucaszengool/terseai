@@ -1,0 +1,101 @@
+<svg width="820" height="340" viewBox="0 0 820 340" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes rowIn    { from{opacity:0;transform:translateX(-12px)} to{opacity:1;transform:translateX(0)} }
+      @keyframes bar1fill { from{width:0} to{width:186px} }
+      @keyframes bar2fill { from{width:0} to{width:322px} }
+      @keyframes bar3fill { from{width:0} to{width:170px} }
+      @keyframes bar4fill { from{width:0} to{width:242px} }
+      @keyframes bar5fill { from{width:0} to{width:322px} }
+      @keyframes barTfill { from{width:0} to{width:370px} }
+      @keyframes totalFlash { 0%{opacity:0;transform:scale(.95)} 60%{opacity:1;transform:scale(1.03)} 100%{opacity:1;transform:scale(1)} }
+      @keyframes costDrop { from{opacity:0;transform:translateY(-4px)} to{opacity:1;transform:translateY(0)} }
+      @keyframes savingsCount { 0%{opacity:0} 100%{opacity:1} }
+      @keyframes glow { 0%,100%{filter:none} 50%{filter:drop-shadow(0 0 6px #3fb950)} }
+
+      .mono { font-family:'SF Mono','Fira Code','Courier New',monospace; }
+      .lbl  { font-size:10px; font-weight:700; fill:#8b949e; letter-spacing:.06em; }
+      .name { font-size:12px; }
+      .pct  { font-size:12px; font-weight:700; }
+      .big  { font-size:28px; font-weight:700; }
+    </style>
+  </defs>
+
+  <rect width="820" height="340" fill="#0d1117" rx="10"/>
+  <text x="410" y="22" class="mono lbl" text-anchor="middle">RECIPE 6 — ALL LAYERS STACKED · MAXIMUM SAVINGS</text>
+
+  <!-- Column headers -->
+  <text x="30"  y="42" class="mono lbl">OPTIMIZATION LAYER</text>
+  <text x="290" y="42" class="mono lbl">SAVINGS</text>
+  <text x="440" y="42" class="mono lbl">VISUAL</text>
+  <text x="770" y="42" class="mono lbl" text-anchor="end">TOKENS SAVED</text>
+
+  <line x1="20" y1="48" x2="800" y2="48" stroke="#21262d" stroke-width="1"/>
+
+  <!-- Row 1: Linguistic Compression -->
+  <g style="animation:rowIn .5s .2s both;opacity:0">
+    <text x="30"  y="72" class="mono name" fill="#3fb950">LinguisticCompressor</text>
+    <text x="30"  y="85" class="mono" font-size="9" fill="#8b949e">removes filler · hedging · politeness</text>
+    <text x="290" y="73" class="mono pct" fill="#3fb950">46%</text>
+    <rect x="440" y="62" height="14" fill="#3fb950" rx="3" style="animation:bar1fill 1s .4s both;width:0"/>
+    <text x="795" y="73" class="mono pct" fill="#3fb950" text-anchor="end">−340 tok</text>
+  </g>
+  <line x1="20" y1="95" x2="800" y2="95" stroke="#21262d" stroke-width=".5"/>
+
+  <!-- Row 2: WorkingMemory -->
+  <g style="animation:rowIn .5s .5s both;opacity:0">
+    <text x="30"  y="117" class="mono name" fill="#58a6ff">WorkingMemory</text>
+    <text x="30"  y="130" class="mono" font-size="9" fill="#8b949e">smart eviction · pins first + recent</text>
+    <text x="290" y="118" class="mono pct" fill="#58a6ff">80%</text>
+    <rect x="440" y="107" height="14" fill="#58a6ff" rx="3" style="animation:bar2fill 1s .7s both;width:0"/>
+    <text x="795" y="118" class="mono pct" fill="#58a6ff" text-anchor="end">−1,715 tok</text>
+  </g>
+  <line x1="20" y1="140" x2="800" y2="140" stroke="#21262d" stroke-width=".5"/>
+
+  <!-- Row 3: optimizeTools -->
+  <g style="animation:rowIn .5s .8s both;opacity:0">
+    <text x="30"  y="162" class="mono name" fill="#d2a8ff">optimizeTools</text>
+    <text x="30"  y="175" class="mono" font-size="9" fill="#8b949e">strip verbose schema descriptions</text>
+    <text x="290" y="163" class="mono pct" fill="#d2a8ff">42%</text>
+    <rect x="440" y="152" height="14" fill="#d2a8ff" rx="3" style="animation:bar3fill 1s 1.0s both;width:0"/>
+    <text x="795" y="163" class="mono pct" fill="#d2a8ff" text-anchor="end">−1,530 tok</text>
+  </g>
+  <line x1="20" y1="185" x2="800" y2="185" stroke="#21262d" stroke-width=".5"/>
+
+  <!-- Row 4: CacheOptimizer -->
+  <g style="animation:rowIn .5s 1.1s both;opacity:0">
+    <text x="30"  y="207" class="mono name" fill="#ffa657">CacheOptimizer</text>
+    <text x="30"  y="220" class="mono" font-size="9" fill="#8b949e">cache hit 7% → 84% · 60% cost cut</text>
+    <text x="290" y="208" class="mono pct" fill="#ffa657">60%</text>
+    <rect x="440" y="197" height="14" fill="#ffa657" rx="3" style="animation:bar4fill 1s 1.3s both;width:0"/>
+    <text x="795" y="208" class="mono pct" fill="#ffa657" text-anchor="end">−$0.18/1k</text>
+  </g>
+  <line x1="20" y1="230" x2="800" y2="230" stroke="#21262d" stroke-width=".5"/>
+
+  <!-- Row 5: ModelRouter -->
+  <g style="animation:rowIn .5s 1.4s both;opacity:0">
+    <text x="30"  y="252" class="mono name" fill="#f778ba">ModelRouter</text>
+    <text x="30"  y="265" class="mono" font-size="9" fill="#8b949e">haiku for simple · opus only when needed</text>
+    <text x="290" y="253" class="mono pct" fill="#f778ba">80%</text>
+    <rect x="440" y="242" height="14" fill="#f778ba" rx="3" style="animation:bar5fill 1s 1.6s both;width:0"/>
+    <text x="795" y="253" class="mono pct" fill="#f778ba" text-anchor="end">−$0.52/run</text>
+  </g>
+
+  <line x1="20" y1="278" x2="800" y2="278" stroke="#30363d" stroke-width="1.5"/>
+
+  <!-- Combined total row -->
+  <g style="animation:totalFlash .6s 2.4s both;opacity:0">
+    <rect x="20" y="284" width="780" height="46" fill="#1a2e1a" rx="6" style="animation:glow 2s 2.8s infinite"/>
+    <text x="36"  y="307" class="mono" font-size="13" font-weight="700" fill="#3fb950">COMBINED SAVINGS</text>
+    <text x="36"  y="322" class="mono" font-size="10" fill="#3fb950">all layers active · stacked optimization</text>
+    <rect x="440" y="292" height="16" fill="#3fb950" rx="3" style="animation:barTfill 1.2s 2.5s both;width:0"/>
+
+    <!-- Cost comparison -->
+    <text x="795" y="303" class="mono" font-size="11" text-anchor="end" style="animation:costDrop .4s 3.0s both;opacity:0">
+      <tspan fill="#f85149">$0.655</tspan>
+      <tspan fill="#8b949e"> → </tspan>
+      <tspan fill="#3fb950">$0.131</tspan>
+    </text>
+    <text x="795" y="320" class="mono" font-size="13" font-weight="700" fill="#3fb950" text-anchor="end" style="animation:costDrop .4s 3.2s both;opacity:0">▼ 80% cost</text>
+  </g>
+</svg>

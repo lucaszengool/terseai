@@ -1,0 +1,101 @@
+<svg width="820" height="290" viewBox="0 0 820 290" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      @keyframes docIn    { from{opacity:0;transform:translateY(-8px)} to{opacity:1;transform:translateY(0)} }
+      @keyframes retrieve { 0%,30%{opacity:0;stroke-dashoffset:60} 60%,100%{opacity:1;stroke-dashoffset:0} }
+      @keyframes dupFlash { 0%,50%{opacity:0} 60%{opacity:1;fill:#f85149} 80%,100%{opacity:.8;fill:#f85149} }
+      @keyframes compress { from{width:120px} to{width:56px} }
+      @keyframes injectIn { from{opacity:0;transform:translateX(10px)} to{opacity:1;transform:translateX(0)} }
+      @keyframes arrowIn  { from{opacity:0} to{opacity:1} }
+      @keyframes savePop  { from{opacity:0;transform:scale(.7)} to{opacity:1;transform:scale(1)} }
+
+      .mono { font-family:'SF Mono','Fira Code','Courier New',monospace; }
+      .lbl  { font-size:10px; font-weight:700; fill:#8b949e; letter-spacing:.06em; }
+      .txt  { font-size:10.5px; }
+    </style>
+  </defs>
+
+  <rect width="820" height="290" fill="#0d1117" rx="10"/>
+  <text x="410" y="20" class="mono lbl" text-anchor="middle">RECIPE 3 — RAG WITH SEMANTIC COMPRESSION + DEDUPLICATION</text>
+
+  <!-- Knowledge base -->
+  <text x="60"  y="38" class="mono lbl" text-anchor="middle">KNOWLEDGE BASE</text>
+
+  <rect x="10"  y="44" width="100" height="50" fill="#161b22" rx="6" stroke="#30363d" style="animation:docIn .4s .1s both;opacity:0"/>
+  <text x="60"  y="62" class="mono txt" fill="#8b949e" text-anchor="middle">React hooks:</text>
+  <text x="60"  y="76" class="mono txt" fill="#8b949e" text-anchor="middle">useState,</text>
+  <text x="60"  y="88" class="mono txt" fill="#8b949e" text-anchor="middle">useEffect</text>
+
+  <rect x="10"  y="100" width="100" height="50" fill="#161b22" rx="6" stroke="#30363d" style="animation:docIn .4s .2s both;opacity:0"/>
+  <text x="60"  y="118" class="mono txt" fill="#8b949e" text-anchor="middle">PostgreSQL</text>
+  <text x="60"  y="132" class="mono txt" fill="#8b949e" text-anchor="middle">JSONB cols</text>
+  <text x="60"  y="144" class="mono txt" fill="#8b949e" text-anchor="middle">+ indexing</text>
+
+  <rect x="10"  y="156" width="100" height="50" fill="#161b22" rx="6" stroke="#30363d" style="animation:docIn .4s .3s both;opacity:0"/>
+  <text x="60"  y="174" class="mono txt" fill="#8b949e" text-anchor="middle">React state:</text>
+  <text x="60"  y="188" class="mono txt" fill="#8b949e" text-anchor="middle">hooks for</text>
+  <text x="60"  y="200" class="mono txt" fill="#8b949e" text-anchor="middle">components</text>
+
+  <rect x="10"  y="212" width="100" height="50" fill="#161b22" rx="6" stroke="#30363d" style="animation:docIn .4s .4s both;opacity:0"/>
+  <text x="60"  y="230" class="mono txt" fill="#8b949e" text-anchor="middle">TypeScript</text>
+  <text x="60"  y="244" class="mono txt" fill="#8b949e" text-anchor="middle">generics</text>
+  <text x="60"  y="258" class="mono txt" fill="#8b949e" text-anchor="middle">guide</text>
+
+  <!-- Query -->
+  <rect x="10" y="270" width="100" height="16" fill="#21262d" rx="3"/>
+  <text x="60" y="282" class="mono" font-size="9" fill="#58a6ff" text-anchor="middle">query: "React hooks"</text>
+
+  <!-- Retrieve arrows -->
+  <line x1="110" y1="69"  x2="200" y2="120" stroke="#58a6ff" stroke-width="1.2" stroke-dasharray="4 3" style="animation:retrieve 1s .6s both;opacity:0"/>
+  <line x1="110" y1="125" x2="200" y2="155" stroke="#58a6ff" stroke-width="1.2" stroke-dasharray="4 3" style="animation:retrieve 1s .7s both;opacity:0"/>
+  <line x1="110" y1="181" x2="200" y2="190" stroke="#f85149" stroke-width="1.2" stroke-dasharray="4 3" style="animation:retrieve 1s .8s both;opacity:0"/>
+  <line x1="110" y1="237" x2="200" y2="225" stroke="#30363d" stroke-width="1" stroke-dasharray="2 3" style="animation:retrieve 1s .9s both;opacity:0"/>
+
+  <!-- Retrieved docs + dedup check -->
+  <text x="260" y="38" class="mono lbl" text-anchor="middle">RETRIEVED  (3 matches)</text>
+
+  <rect x="200" y="44"  width="120" height="56" fill="#161b22" rx="6" stroke="#3fb950" stroke-width="1.2" style="animation:docIn .4s .8s both;opacity:0"/>
+  <text x="260" y="61"  class="mono txt" fill="#3fb950" style="animation:docIn .3s .8s both;opacity:0">React hooks let</text>
+  <text x="260" y="75"  class="mono txt" fill="#3fb950" style="animation:docIn .3s .8s both;opacity:0" text-anchor="middle">you use state…</text>
+  <text x="260" y="92"  class="mono" font-size="9" fill="#3fb950" text-anchor="middle" style="animation:docIn .3s .8s both;opacity:0">sim: 0.91 ✓ NEW</text>
+
+  <rect x="200" y="108" width="120" height="56" fill="#161b22" rx="6" stroke="#3fb950" stroke-width="1.2" style="animation:docIn .4s .9s both;opacity:0"/>
+  <text x="260" y="125" class="mono txt" fill="#3fb950" text-anchor="middle" style="animation:docIn .3s .9s both;opacity:0">PostgreSQL JSONB</text>
+  <text x="260" y="139" class="mono txt" fill="#3fb950" text-anchor="middle" style="animation:docIn .3s .9s both;opacity:0">cols + indexing</text>
+  <text x="260" y="156" class="mono" font-size="9" fill="#3fb950" text-anchor="middle" style="animation:docIn .3s .9s both;opacity:0">sim: 0.78 ✓ NEW</text>
+
+  <rect x="200" y="172" width="120" height="56" fill="#2e1a1a" rx="6" stroke="#f85149" stroke-width="1.5" style="animation:docIn .4s 1.0s both;opacity:0"/>
+  <text x="260" y="189" class="mono txt" fill="#f85149" text-anchor="middle" style="animation:docIn .3s 1.0s both;opacity:0">React state via</text>
+  <text x="260" y="203" class="mono txt" fill="#f85149" text-anchor="middle" style="animation:docIn .3s 1.0s both;opacity:0">hooks for comps</text>
+  <text x="260" y="220" class="mono" font-size="9" fill="#f85149" text-anchor="middle" style="animation:dupFlash 3s 1.2s infinite">sim: 0.95 ✗ DUP</text>
+
+  <!-- Dedup badge -->
+  <rect x="210" y="234" width="100" height="16" fill="#f85149" rx="8" style="animation:dupFlash 3s 1.4s infinite"/>
+  <text x="260" y="246" class="mono" font-size="9" font-weight="700" fill="#0d1117" text-anchor="middle" style="animation:dupFlash 3s 1.4s infinite">BLOCKED BY DEDUP</text>
+
+  <!-- Compress arrows -->
+  <line x1="320" y1="72"  x2="420" y2="100" stroke="#3fb950" stroke-width="1.5" style="animation:arrowIn .3s 1.6s both;opacity:0"/>
+  <line x1="320" y1="136" x2="420" y2="136" stroke="#3fb950" stroke-width="1.5" style="animation:arrowIn .3s 1.8s both;opacity:0"/>
+  <text x="370" y="90"  class="mono" font-size="9" fill="#3fb950" text-anchor="middle" style="animation:arrowIn .3s 1.6s both;opacity:0">compress</text>
+
+  <!-- Context being built -->
+  <text x="560" y="38" class="mono lbl" fill="#3fb950" text-anchor="middle">INJECTED CONTEXT</text>
+
+  <rect x="420" y="44" width="280" height="60" fill="#1a2e1a" rx="6" stroke="#3fb950" stroke-width="1.2" style="animation:injectIn .4s 1.8s both;opacity:0"/>
+  <text x="432" y="63" class="mono txt" fill="#3fb950" style="animation:injectIn .3s 1.9s both;opacity:0">React hooks for state (useState, useEffect)</text>
+  <text x="432" y="79" class="mono txt" fill="#3fb950" style="animation:injectIn .3s 1.9s both;opacity:0">in functional components. ↓ compressed</text>
+  <text x="695" y="98" class="mono" font-size="9" fill="#3fb950" text-anchor="end" style="animation:injectIn .3s 2.0s both;opacity:0">84 tok</text>
+
+  <rect x="420" y="112" width="280" height="60" fill="#1a2e1a" rx="6" stroke="#3fb950" stroke-width="1.2" style="animation:injectIn .4s 2.0s both;opacity:0"/>
+  <text x="432" y="131" class="mono txt" fill="#3fb950" style="animation:injectIn .3s 2.1s both;opacity:0">PostgreSQL JSONB supports semi-structured</text>
+  <text x="432" y="147" class="mono txt" fill="#3fb950" style="animation:injectIn .3s 2.1s both;opacity:0">data with GIN indexing. ↓ compressed</text>
+  <text x="695" y="166" class="mono" font-size="9" fill="#3fb950" text-anchor="end" style="animation:injectIn .3s 2.2s both;opacity:0">72 tok</text>
+
+  <rect x="420" y="180" width="280" height="36" fill="#2e1a1a" rx="6" stroke="#f85149" stroke-width="1" stroke-dasharray="4 3" style="animation:injectIn .4s 2.1s both;opacity:0"/>
+  <text x="560" y="202" class="mono" font-size="10" fill="#f85149" text-anchor="middle" style="animation:injectIn .3s 2.2s both;opacity:0">✗ [React hooks chunk — blocked, sim 0.95]</text>
+
+  <!-- Final stats -->
+  <rect x="420" y="226" width="280" height="48" fill="#161b22" rx="6" style="animation:savePop .4s 2.6s both;opacity:0"/>
+  <text x="432" y="244" class="mono txt" fill="#8b949e" style="animation:savePop .3s 2.7s both;opacity:0">Context tokens:  840 → 156  (81% saved)</text>
+  <text x="432" y="262" class="mono txt" fill="#3fb950" style="animation:savePop .3s 2.8s both;opacity:0">1 duplicate blocked · 2 chunks compressed</text>
+</svg>

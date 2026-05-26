@@ -84,6 +84,11 @@ That's it. No prompt rewrites. No pipeline changes. Terse intercepts, compresses
 
 <br>
 <div align="center">
+  <img src="./docs/quickstart-demo.svg" alt="Quick start — message compressed 86%, stats animating" width="820"/>
+</div>
+<br>
+
+<div align="center">
   <img src="./docs/compression-demo.svg" alt="Terse compression demo — filler words removed in real time" width="820"/>
 </div>
 <br>
@@ -422,6 +427,11 @@ const { text, ratio } = verbatimCompact(code)
 
 ### WorkingMemory
 
+<div align="center">
+  <img src="./docs/working-memory-demo.svg" alt="Working memory — smart eviction keeps 425 of 2,140 tokens" width="820"/>
+</div>
+<br>
+
 Sliding window context manager. Keeps the most recent N tokens of conversation history, automatically evicting old messages when the budget is exceeded.
 
 ```javascript
@@ -479,6 +489,11 @@ const response = await anthropic.messages.create({
 ---
 
 ### EpisodicMemory
+
+<div align="center">
+  <img src="./docs/episodic-memory-demo.svg" alt="Episodic memory — old turns summarized, recent kept verbatim" width="820"/>
+</div>
+<br>
 
 Session-level memory that keeps a running summary of old conversation segments plus a verbatim window of recent messages. When the verbatim window exceeds `maxVerbatimTokens`, the oldest messages are summarized via LLM call and appended to the summary.
 
@@ -888,6 +903,11 @@ console.log(result.content)
 
 ### Recipe 2 — Long-running agent with memory
 
+<div align="center">
+  <img src="./docs/recipe-agent.svg" alt="Agent memory — token count stays flat across 10 turns" width="820"/>
+</div>
+<br>
+
 For multi-turn agents that need to stay within token limits over many turns.
 
 ```javascript
@@ -923,6 +943,11 @@ await chat("Now add rate limiting.")
 ---
 
 ### Recipe 3 — RAG with semantic compression
+
+<div align="center">
+  <img src="./docs/recipe-rag.svg" alt="RAG pipeline — retrieved chunks compressed and deduplicated" width="820"/>
+</div>
+<br>
 
 Retrieve context from a large knowledge base, compress, inject only what's relevant.
 
@@ -1009,6 +1034,11 @@ const result = await client.messages.create({
 ---
 
 ### Recipe 6 — Everything stacked
+
+<div align="center">
+  <img src="./docs/recipe-stacked.svg" alt="All layers stacked — 80% combined cost reduction" width="820"/>
+</div>
+<br>
 
 Maximum savings: compression + memory + routing + tool optimization.
 
